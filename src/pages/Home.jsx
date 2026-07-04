@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
@@ -8,5 +8,4 @@ const Home = () => {
    </>
   )
 }
-
 export default Home;
