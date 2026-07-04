@@ -10,11 +10,12 @@ import OrderConfirmation from "./pages/OrderConfirmation.jsx";
 import Products from "./pages/Products.jsx";
 import ProductDetails from "./pages/ProductDetails.jsx";
 import Search from "./pages/Search.jsx";
-
+import Navbar from "./components/Navbar";
 function App() {
   return (
     <>
     <BrowserRouter>
+    <Navbar/>
     <Routes>
       <Route path="/" element={<Home/>}/>
      <Route path="/about" element ={<About/>}/>

@@ -1,9 +1,8 @@
-import Navbar from "../components/Navbar";
-
+import HeroSlider from "../components/HeroSlider";
 const Home = () => {
   return (
    <>
-   <Navbar/>
+   <HeroSlider/>
    <h1 className="text-center my-5">Home Page</h1>
    </>
   )
