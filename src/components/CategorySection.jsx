@@ -9,19 +9,19 @@ const CategorySection = () => {
             </h2>
             <div className="row">
                 <div className="col-md-3">
-                    <CategoryCard />
+                    <CategoryCard  title="Fashion" emoji="👕"/>
                 </div>
 
             <div className="col-md-3">
-               <CategoryCard />
+               <CategoryCard  title="Electronics" emoji="💻"/>
             </div>
 
            <div className="col-md-3">
-            <CategoryCard />
+            <CategoryCard  title="Home & Kitchen" emoji="🏠"/>
             </div>
 
         <div className="col-md-3">
-          <CategoryCard />
+          <CategoryCard  title="Books" emoji="📚"/>
          </div>
             </div>
             </div>
