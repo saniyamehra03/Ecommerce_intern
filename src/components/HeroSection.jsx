@@ -1,24 +1,30 @@
 import React from 'react'
-
+import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
-   <section className="bg-light py-5" >
-       <div className="container">
-           <div className="row align-items-center">
+  <section className="bg-light py-5">
+      <div className="container">
+        <div className="row align-items-center">
+            <div className="col-lg-6">
+                <h1 className="display-4 fw-bold">
+                    Discover Amazing Products
+                </h1>
+                <p className="lead text-muted mt-3">
+                      Shop the latest trends with the best prices.
+                      Fast delivery and premium quality products.
+                </p>
+                <Link to="/products" className="btn btn-primary btn-lg mt-3">
+                Shop Now 
+                </Link>
             </div>
-            <h1 className="display-4">NovaCart</h1>
-            <p className="lead text-muted mt-3">
-                Discover the best products at unbeatable prices. Shop now and experience the NovaCart difference!
-            </p>
-            <a href="/products" className="btn btn-primary btn-lg mt-3">
-                Shop Now
-            </a>
+            <div className="col-lg-6 text-center">
+                <img  src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700"
+              className="img-fluid rounded"
+                alt="Hero"/>
+            </div>
         </div>
-        <div>
-            <img src="/path/to/hero-image.jpg" alt="Hero Image" className="img-fluid" />
-        </div>
-   </section>
-  )
-}
-
-export default HeroSection
+      </div>
+    </section>
+  );
+};
+export default HeroSection;

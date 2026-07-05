@@ -1,8 +1,11 @@
-import HeroSlider from "../components/HeroSlider";
+import CategorySection from "../components/CategorySection";
+import HeroSection from "../components/HeroSection";
 const Home = () => {
   return (
    <>
-   <HeroSlider/>
+   <HeroSection/>
+   <CategorySection/>
+
    <h1 className="text-center my-5">Home Page</h1>
    </>
   )
