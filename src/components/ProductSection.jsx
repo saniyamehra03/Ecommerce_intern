@@ -1,5 +1,5 @@
     import ProductCard from './ProductCard'
-    import products from '../data/products.json'
+    import products from '../data/products.js'
     const ProductSection = () => {
       return (
         <section className="py-5">
@@ -11,6 +11,7 @@
               {products.map((product) => (
                 <div className="col-md-3" key={product.id}>
                   <ProductCard
+                  id={product.id}
                   title={product.title}
                   price={product.price}
                   rating={product.rating}
