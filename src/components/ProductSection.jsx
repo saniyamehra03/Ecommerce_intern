@@ -1,5 +1,5 @@
     import ProductCard from './ProductCard'
-    import products from '../data/products.js'
+    import products from '../data/products.json'
     const ProductSection = () => {
       return (
         <section className="py-5">

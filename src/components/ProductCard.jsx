@@ -1,9 +1,15 @@
 import React from 'react'
-
+import{Link} from 'react-router-dom'
 const ProductCard = (props) => {
   return (
-    <div className="card shadow-sm h-100">
-          <img src={props.image} alt={props.title} className="card-img-top"/>
+      <Link to={`/products/${props.id}`}
+      className="text-decoration-none text-dark">
+        <div className="card shadow-sm h-100">
+        <img 
+        src={props.image} 
+        alt={props.title} 
+        className="card-img-top"
+        />
       <div className="card-body text-center">
         <h5 className="card-title">
             {props.title}
@@ -18,6 +24,7 @@ const ProductCard = (props) => {
         </button>
       </div>
     </div>
+    </Link>
   )
 }
-export default ProductCard
+export default ProductCard;
