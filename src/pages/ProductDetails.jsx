@@ -36,7 +36,6 @@ if(!product){
             </button>
           </div>
         </div >
-   
     </div>
     </div>
   )

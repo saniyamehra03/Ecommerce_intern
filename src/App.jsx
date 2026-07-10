@@ -11,13 +11,23 @@ import Products from "./pages/Products.jsx";
 import ProductDetails from "./pages/ProductDetails.jsx";
 import Search from "./pages/Search.jsx";
 import Navbar from "./components/Navbar";
+import {useState} from "react";
 function App() {
+  const[cart,setCart]=useState([]);
+  const addToCart =(product)  => {
+    console.log(product);
+    setCart([...cart,product]);
+  };
   return (
     <>
+
     <BrowserRouter>
-    <Navbar/>
+    <Navbar cart={cart}/>
     <Routes>
-      <Route path="/" element={<Home/>}/>
+      <Route
+      path="/"
+      element ={<Home addToCart={addToCart} cart={cart}/>}
+      />
      <Route path="/about" element ={<About/>}/>
       <Route path="/cart" element ={<Cart/>}/>
       <Route path="/category" element ={<Category/>}/>

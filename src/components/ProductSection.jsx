@@ -1,6 +1,6 @@
     import ProductCard from './ProductCard'
     import products from '../data/products.js'
-    const ProductSection = () => {
+    const ProductSection = ({ addToCart }) => {
       return (
         <section className="py-5">
           <div className="container">
@@ -16,6 +16,7 @@
                   price={product.price}
                   rating={product.rating}
                   image={product.image}
+                  addToCart={addToCart}
                   />
                 </div>
               ))}
