@@ -1,5 +1,5 @@
 import{NavLink} from 'react-router-dom';
-function Navbar (){
+const Navbar = ({ cart }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
@@ -29,7 +29,9 @@ function Navbar (){
                   <NavLink className="nav-link" to="/products">Products</NavLink>
                      </li>
                  <li className="nav-item">
-                    <NavLink className="nav-link" to="/cart">🛒 Cart</NavLink>
+                    <NavLink className="nav-link" to="/cart">
+                      🛒 Cart ({cart.length})
+                    </NavLink>
                    </li>
                     </ul>
             </div>
