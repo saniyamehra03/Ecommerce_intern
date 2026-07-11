@@ -1,6 +1,20 @@
 import React from 'react'
-
+import{Link} from 'react-router-dom'
 const Cart = ({ cart, removeFromCart }) => {
+  if(cart.length ===0){
+    return(
+      <div className="container py-5 text-center">
+        <h2 className="mb-3">Your Cart is Empty 🛒</h2>
+        
+        <p className="text-muted mb-4">
+           Looks like you haven't added any products yet.</p>
+
+           <Link to="/" className="btn btn-primary">
+             Continue Shopping
+           </Link>
+      </div>
+    )
+  }
   return (
      <div className="container py-5">
      <h2>Shopping Cart</h2>
