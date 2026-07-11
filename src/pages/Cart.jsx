@@ -15,6 +15,10 @@ const Cart = ({ cart, removeFromCart }) => {
       </div>
     )
   }
+  const totalPrice = cart.reduce((total ,item) =>{
+    return total + Number(item.price.replace("₹" ,"").replace("," ,""));
+    return total + price;
+  }, 0);
   return (
      <div className="container py-5">
      <h2>Shopping Cart</h2>
@@ -32,8 +36,11 @@ const Cart = ({ cart, removeFromCart }) => {
        <button onClick={() => removeFromCart(item.id)}>
         Remove from Cart</button>
       </div>
-     
     ))}
+    <hr/>
+    <h3 className='text-end'>
+      Total :  ₹{totalPrice}
+    </h3>
      </div>
   )
 }
