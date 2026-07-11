@@ -20,7 +20,6 @@ function App() {
   };
   return (
     <>
-
     <BrowserRouter>
     <Navbar cart={cart}/>
     <Routes>
@@ -28,8 +27,8 @@ function App() {
       path="/"
       element ={<Home addToCart={addToCart} cart={cart}/>}
       />
-     <Route path="/about" element ={<About/>}/>
-      <Route path="/cart" element ={<Cart/>}/>
+      <Route path="/about" element ={<About/>}/>
+      <Route path="/cart" element ={<Cart cart={cart}/>}/>
       <Route path="/category" element ={<Category/>}/>
       <Route path="/checkout" element ={<Checkout/>}/>
       <Route path="/contact" element ={<Contact/>}/>
@@ -39,7 +38,6 @@ function App() {
       <Route path="/search" element ={<Search/>}/>
     </Routes>
     </BrowserRouter>
-     
     </>
   )
 }

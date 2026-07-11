@@ -13,7 +13,6 @@ const ProductCard = (props) => {
       <Link
        to={`/products/${props.id}`}
       className="text-decoration-none text-dark">
-       
         <img 
         src={props.image} 
         alt={props.title} 
