@@ -18,6 +18,10 @@ function App() {
     console.log(product);
     setCart([...cart,product]);
   };
+  const removeFromCart = (id) => {
+    const updatedCart = cart.filter((item) => item.id !== id);
+    setCart(updatedCart);
+  }
   return (
     <>
     <BrowserRouter>
@@ -28,7 +32,7 @@ function App() {
       element ={<Home addToCart={addToCart} cart={cart}/>}
       />
       <Route path="/about" element ={<About/>}/>
-      <Route path="/cart" element ={<Cart cart={cart}/>}/>
+      <Route path="/cart" element ={<Cart cart={cart} removeFromCart={removeFromCart}/>}/>
       <Route path="/category" element ={<Category/>}/>
       <Route path="/checkout" element ={<Checkout/>}/>
       <Route path="/contact" element ={<Contact/>}/>

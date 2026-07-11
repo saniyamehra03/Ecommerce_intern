@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, removeFromCart }) => {
   return (
      <div className="container py-5">
      <h2>Shopping Cart</h2>
@@ -15,7 +15,10 @@ const Cart = ({ cart }) => {
       <h4>{item.title}</h4>
       <p>{item.rating}</p>
       <h5>{item.price}</h5>
+       <button onClick={() => removeFromCart(item.id)}>
+        Remove from Cart</button>
       </div>
+     
     ))}
      </div>
   )
