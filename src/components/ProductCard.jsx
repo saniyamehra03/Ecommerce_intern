@@ -6,7 +6,8 @@ const ProductCard = (props) => {
     title:props.title,
     price:props.price,
     rating:props.rating,
-    image:props.image
+    image:props.image,
+    quantity:1
   };
   return (
     <div className="card shadow-sm h-100">

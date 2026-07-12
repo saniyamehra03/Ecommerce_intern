@@ -15,9 +15,26 @@ import {useState} from "react";
 function App() {
   const[cart,setCart]=useState([]);
   const addToCart =(product)  => {
-    console.log(product);
+    const existingProduct = cart.find(
+    (item) => item.id === product.id
+  );
+  if(existingProduct){
+    const updatedCard = cart.map((item) =>{
+      if(item.id === product.id){
+        return {
+          ...item,
+          quantity: item.quantity+1,
+        };
+      }
+      return item;
+    });
+    setCart(updatedCard);
+  }
+    else{
     setCart([...cart,product]);
+    }
   };
+  
   const removeFromCart = (id) => {
     const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);

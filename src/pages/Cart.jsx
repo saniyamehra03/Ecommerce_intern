@@ -31,6 +31,7 @@ const Cart = ({ cart, removeFromCart }) => {
       style={{ width:"120px"}}
       />
       <h4>{item.title}</h4>
+      <p> Quantity :{item.quantity}</p>
       <p>{item.rating}</p>
       <h5>{item.price}</h5>
        <button onClick={() => removeFromCart(item.id)}>
@@ -39,7 +40,7 @@ const Cart = ({ cart, removeFromCart }) => {
     ))}
     <hr/>
     <h3 className='text-end'>
-      Total :  ₹{totalPrice}
+      Total : ₹{totalPrice}
     </h3>
      </div>
   )
