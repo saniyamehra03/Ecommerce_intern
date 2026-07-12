@@ -1,6 +1,6 @@
 import React from 'react'
 import{Link} from 'react-router-dom'
-const Cart = ({ cart, removeFromCart }) => {
+const Cart = ({ cart, removeFromCart,increaseQuantity,decreaseQuantity }) => {
   if(cart.length ===0){
     return(
       <div className="container py-5 text-center">
@@ -31,7 +31,19 @@ const Cart = ({ cart, removeFromCart }) => {
       style={{ width:"120px"}}
       />
       <h4>{item.title}</h4>
-      <p> Quantity :{item.quantity}</p>
+      <div className="d-flex align-items-center gap-3 my-2">
+      <button className="btn btn-outline-secondary btn-sm"
+      onClick={() => decreaseQuantity(item.id)}>
+         -
+       </button>
+      <span className="fw-bold">
+        {item.quantity}
+      </span>
+      <button className="btn btn-outline-secondary btn-sm"
+       onClick={()=> increaseQuantity(item.id)}>
+         +
+       </button>
+    </div>
       <p>{item.rating}</p>
       <h5>{item.price}</h5>
        <button onClick={() => removeFromCart(item.id)}>

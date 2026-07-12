@@ -18,6 +18,7 @@ function App() {
     const existingProduct = cart.find(
     (item) => item.id === product.id
   );
+
   if(existingProduct){
     const updatedCard = cart.map((item) =>{
       if(item.id === product.id){
@@ -34,11 +35,41 @@ function App() {
     setCart([...cart,product]);
     }
   };
-  
+
+   const increaseQuantity =(id)=>{
+   const updatedCart = cart.map((item) => {
+    if(item.id ===id){
+      return{
+        ...item,
+        quantity: item.quantity +1,
+      };
+    }
+    return item;
+   });
+   setCart(updatedCart);
+  };
+
+  const decreaseQuantity =(id)=>{
+   const updatedCart = cart
+    .map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          quantity: item.quantity - 1,
+        };
+      }
+      return item;
+    })
+    .filter((item) => item.quantity > 0);
+
+  setCart(updatedCart);
+};
+
   const removeFromCart = (id) => {
     const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);
   }
+
   return (
     <>
     <BrowserRouter>
@@ -49,7 +80,15 @@ function App() {
       element ={<Home addToCart={addToCart} cart={cart}/>}
       />
       <Route path="/about" element ={<About/>}/>
-      <Route path="/cart" element ={<Cart cart={cart} removeFromCart={removeFromCart}/>}/>
+      <Route path="/cart" element ={
+        <Cart 
+       cart={cart}
+       removeFromCart={removeFromCart}
+       increaseQuantity={increaseQuantity}
+       decreaseQuantity={decreaseQuantity}
+       />
+       }
+       />
       <Route path="/category" element ={<Category/>}/>
       <Route path="/checkout" element ={<Checkout/>}/>
       <Route path="/contact" element ={<Contact/>}/>
