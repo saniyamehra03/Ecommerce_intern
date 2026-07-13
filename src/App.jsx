@@ -90,7 +90,7 @@ function App() {
        }
        />
       <Route path="/category" element ={<Category/>}/>
-      <Route path="/checkout" element ={<Checkout/>}/>
+      <Route path="/checkout" element ={<Checkout cart={cart}/>}/>
       <Route path="/contact" element ={<Contact/>}/>
       <Route path="/order-confirmation" element ={<OrderConfirmation/>}/>
       <Route path="/products" element ={<Products/>}/>
