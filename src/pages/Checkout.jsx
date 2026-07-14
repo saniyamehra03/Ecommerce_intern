@@ -1,5 +1,9 @@
 import React from 'react'
 const Checkout = ({cart}) => {
+  const total = cart.reduce((sum ,item) =>{
+    const price = Number(item.price.replace(/[₹,]/g,""));
+    return sum + price * item.quantity;  
+  },0);
   return (
     <div className="container py-5">
       <h1 className='text-center mb-5'>
@@ -69,7 +73,13 @@ const Checkout = ({cart}) => {
       />
     </div>
        ))}
+         <hr />
+         <div className='d-flex justify-content-between'>
+          <h5>Total Amount</h5>
+          <h5>₹{total.toLocaleString()}</h5>
+         </div>
       </div>
+
       <div className='card p-4 mb-4'>
         <h3>Payment Method </h3>
       </div>
