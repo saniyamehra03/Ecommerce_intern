@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 const CategoryCard = (props) => {
 
   return (
@@ -9,9 +9,9 @@ const CategoryCard = (props) => {
         <h1>{props.title}
         </h1>
 
-        <button className="btn btn-outline-primary mt-3">
+        <Link to="/products" className="btn btn-primary mt-3">
           Shop Now
-        </button>
+        </Link>
 
         </div>
     </div>
