@@ -1,12 +1,13 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-const Checkout = ({cart}) => {
+const Checkout = ({cart , clearCart}) => {
   const total = cart.reduce((sum ,item) =>{
     const price = Number(item.price.replace(/[₹,]/g,""));
     return sum + price * item.quantity;  
   },0);
   const navigate = useNavigate();
   const handlePlaceOrder =() =>{
+    clearCart();
     navigate("/order-confirmation");
   }
   return (
@@ -88,7 +89,8 @@ const Checkout = ({cart}) => {
       <div className='card p-4 mb-4'>
         <h3>Payment Method </h3>
       </div>
-       <button className='btn btn-primary w-100' onClick= {handlePlaceOrder}>
+       <button className='btn btn-primary w-100' 
+       onClick= {handlePlaceOrder}>
         Place Order
       </button>
     </div>

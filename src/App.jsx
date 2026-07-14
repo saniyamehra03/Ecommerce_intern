@@ -69,7 +69,9 @@ function App() {
     const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);
   }
-
+  const clearCart =() =>{
+    setCart([]);
+  };
   return (
     <>
     <BrowserRouter>
@@ -90,7 +92,7 @@ function App() {
        }
        />
       <Route path="/category" element ={<Category/>}/>
-      <Route path="/checkout" element ={<Checkout cart={cart}/>}/>
+      <Route path="/checkout" element ={<Checkout cart={cart} clearCart={clearCart}/>}/>
       <Route path="/contact" element ={<Contact/>}/>
       <Route path="/order-confirmation" element ={<OrderConfirmation/>}/>
       <Route path="/products" element ={<Products/>}/>
