@@ -1,5 +1,4 @@
 import React from 'react'
-
 const Checkout = ({cart}) => {
   return (
     <div className="container py-5">
@@ -42,7 +41,34 @@ const Checkout = ({cart}) => {
        </div>
       </div>
       <div className='card p-4 mb-4'>
-       <h3>  Order Summary </h3>
+       <h3 className='mb-4'>  Order Summary </h3>
+       {cart.map((item) =>(
+        <div
+          key={item.id}
+          className="d-flex justify-content-between 
+          align-items-center border-bottom pb-3 mb-3"
+        >
+          <div>
+            <h5>{item.title}</h5>
+
+          <p className='mb-1'>
+            Price:{item.price}
+          </p>
+
+          <p className='mb-0'>
+            Quantity :{item.quantity}
+          </p>
+
+        </div>
+        <img
+        src={item.image}
+        alt={item.title}
+        width="80"
+        height="80"
+        style={{ objectFit: "cover" }}
+      />
+    </div>
+       ))}
       </div>
       <div className='card p-4 mb-4'>
         <h3>Payment Method </h3>

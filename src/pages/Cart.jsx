@@ -54,6 +54,7 @@ const Cart = ({ cart, removeFromCart,increaseQuantity,decreaseQuantity }) => {
     <h3 className='text-end'>
       Total : ₹{totalPrice}
     </h3>
+    <Link to="/checkout" className='btn btn-success w-100 mt-3'>Proceed to Checkout</Link>
      </div>
   )
 }
