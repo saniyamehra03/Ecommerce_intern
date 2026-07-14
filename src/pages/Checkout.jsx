@@ -1,9 +1,14 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 const Checkout = ({cart}) => {
   const total = cart.reduce((sum ,item) =>{
     const price = Number(item.price.replace(/[₹,]/g,""));
     return sum + price * item.quantity;  
   },0);
+  const navigate = useNavigate();
+  const handlePlaceOrder =() =>{
+    navigate("/order-confirmation");
+  }
   return (
     <div className="container py-5">
       <h1 className='text-center mb-5'>
@@ -83,8 +88,8 @@ const Checkout = ({cart}) => {
       <div className='card p-4 mb-4'>
         <h3>Payment Method </h3>
       </div>
-       <button className='btn btn-primary w-100'>
-        <h3>Place Order </h3>
+       <button className='btn btn-primary w-100' onClick= {handlePlaceOrder}>
+        Place Order
       </button>
     </div>
   );
