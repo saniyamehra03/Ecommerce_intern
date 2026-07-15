@@ -1,6 +1,6 @@
 import React from 'react'
 import shopeImage from "../assets/shope.png";
-
+import { Link } from "react-router-dom";
 const About = () => {
   return (
     <div className="container-fluid bg-light py-5">
@@ -79,6 +79,78 @@ const About = () => {
     </div>
 
     </div>
+    <div className="mt-5">
+  <h2 className="text-center fw-bold mb-5">
+    Our Achievements
+  </h2>
+
+  <div className="row g-4">
+
+    <div className="col-md-3">
+      <div className="card about-card border-0 shadow-sm rounded-4 text-center p-4 h-100">
+        <h1>👥</h1>
+        <h2 className="fw-bold text-primary">10,000+</h2>
+        <p className="text-muted mb-0">
+          Happy Customers
+        </p>
+      </div>
+    </div>
+
+    <div className="col-md-3">
+      <div className="card about-card border-0 shadow-sm rounded-4 text-center p-4 h-100">
+        <h1>📦</h1>
+        <h2 className="fw-bold text-primary">5,000+</h2>
+        <p className="text-muted mb-0">
+          Products Available
+        </p>
+      </div>
+    </div>
+
+    <div className="col-md-3">
+      <div className="card about-card border-0 shadow-sm rounded-4 text-center p-4 h-100">
+        <h1>🚚</h1>
+        <h2 className="fw-bold text-primary">24 Hours</h2>
+        <p className="text-muted mb-0">
+          Fast Delivery
+        </p>
+      </div>
+    </div>
+
+    <div className="col-md-3">
+      <div className="card about-card border-0 shadow-sm rounded-4 text-center p-4 h-100">
+        <h1>⭐</h1>
+        <h2 className="fw-bold text-primary">4.8/5</h2>
+        <p className="text-muted mb-0">
+          Customer Rating
+        </p>
+      </div>
+    </div>
+     <div className="mt-5">
+  <div className="card border-0 bg-primary text-white rounded-4 shadow-lg p-5 text-center">
+
+    <h2 className="fw-bold mb-3">
+      Ready to Start Shopping?
+    </h2>
+
+    <p className="mb-4 fs-5">
+      Discover thousands of premium products at amazing prices.
+      Shop with confidence and enjoy a seamless shopping experience.
+    </p>
+
+    <div>
+      <Link
+        to="/products"
+        className="btn btn-light btn-lg rounded-pill px-5 fw-bold"
+      >
+        Explore Products
+      </Link>
+    </div>
+
+  </div>
+</div>
+  </div>
+</div>
+
     </div>
     </div>
     </div>
