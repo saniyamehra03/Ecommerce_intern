@@ -1,5 +1,6 @@
 import React from 'react'
 import{Link} from 'react-router-dom'
+import { FaShoppingCart } from "react-icons/fa";
 const ProductCard = (props) => {
   const product={
     id:props.id,
@@ -10,7 +11,7 @@ const ProductCard = (props) => {
     quantity:1
   };
   return (
-    <div className="card shadow-sm h-100">
+   <div className="card product-card h-100 w-100 shadow-sm border-0 rounded-4 overflow-hidden">
       <Link
        to={`/products/${props.id}`}
       className="text-decoration-none text-dark">
@@ -18,21 +19,33 @@ const ProductCard = (props) => {
         src={props.image} 
         alt={props.title} 
         className="card-img-top"
+         style={{
+           height: "220px",
+           objectFit: "cover",
+         }}
         />
-      <div className="card-body text-center">
-        <h5>{props.title}</h5>
-         <p>{props.rating}</p>
+      <div className="card-body d-flex flex-column justify-content-between">
+        <h5 className='fw-bold mb-2 text-center'
+           style={{
+           minHeight: "60px",
+          }}>
+          {props.title}
+        </h5>
+         <p className='text-warning mb-2'>
+          {props.rating}
+        </p>
 
-       <p className="fw-bold text-primary"> 
+       <h4 className="fw-bold text-primary mb-3"> 
          {props.price}
-       </p>
+       </h4>
        </div>
     </Link>
     <div className="card-footer bg-white border-0">
        <button
-        className="btn btn-primary w-100"
+        className="btn btn-dark w-100 rounded-pill"
         onClick={() => 
           props.addToCart(product)}>
+            <FaShoppingCart className="me-2"/>
         Add to Cart 
         </button>
       </div>
