@@ -99,7 +99,7 @@ function App() {
       <Route path="/contact" element ={<Contact/>}/>
       <Route path="/order-confirmation" element ={<OrderConfirmation/>}/>
       <Route path="/products" element ={<Products addToCart={addToCart}/>}/>
-      <Route path="/products/:id" element ={<ProductDetails/>}/>
+      <Route path="/products/:id" element ={<ProductDetails addToCart={addToCart}/>}/>
       <Route path="/search" element ={<Search/>}/>
     </Routes>
       <Footer/>

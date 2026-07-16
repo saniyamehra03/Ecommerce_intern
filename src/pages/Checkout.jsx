@@ -2,7 +2,11 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 const Checkout = ({cart , clearCart}) => {
   const total = cart.reduce((sum ,item) =>{
+     console.log("Item:", item);
+  console.log("Price:", item.price);
+  console.log("Quantity:", item.quantity);
     const price = Number(item.price.replace(/[₹,]/g,""));
+     console.log("Converted Price:", price);
     return sum + price * item.quantity;  
   },0);
   const navigate = useNavigate();
