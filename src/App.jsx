@@ -11,6 +11,7 @@ import Products from "./pages/Products.jsx";
 import ProductDetails from "./pages/ProductDetails.jsx";
 import Search from "./pages/Search.jsx";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer.jsx";
 import {useState} from "react";
 function App() {
   const[cart,setCart]=useState([]);
@@ -76,6 +77,7 @@ function App() {
     <>
     <BrowserRouter>
     <Navbar cart={cart}/>
+  x
     <Routes>
       <Route
       path="/"
@@ -99,6 +101,7 @@ function App() {
       <Route path="/products/:id" element ={<ProductDetails/>}/>
       <Route path="/search" element ={<Search/>}/>
     </Routes>
+      <Footer/>
     </BrowserRouter>
     </>
   )
