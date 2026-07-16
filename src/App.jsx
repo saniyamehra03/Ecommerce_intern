@@ -13,6 +13,7 @@ import Search from "./pages/Search.jsx";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer.jsx";
 import {useState} from "react";
+import ScrollToTop from "./components/ScrollToTop";
 function App() {
   const[cart,setCart]=useState([]);
   const addToCart =(product)  => {
@@ -102,6 +103,7 @@ function App() {
       <Route path="/search" element ={<Search/>}/>
     </Routes>
       <Footer/>
+      <ScrollToTop />
     </BrowserRouter>
     </>
   )
