@@ -1,12 +1,29 @@
-import{NavLink} from 'react-router-dom';
+import { useState } from 'react';
+import{NavLink ,useNavigate} from 'react-router-dom';
 const Navbar = ({ cart }) => {
+  const [search ,setSearch] =useState("");
+  const navigate =useNavigate();
+  const handleSearch=(e) =>{
+    e.preventDefault();
+    navigate(`/search?query=${search}`);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
             <NavLink className="navbar-brand fw-bold"  to="/">
                NovaCart
             </NavLink>
-
+             <form className='d-flex mx-3' onSubmit={handleSearch}>
+              <input className='form-control me-2'
+              type='search'
+              placeholder="Search products"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              />
+              <button className='btn btn-outline-primary' type="submit">Search</button>
+             
+             </form>
             <button 
              className="navbar-toggler"
              type="button"

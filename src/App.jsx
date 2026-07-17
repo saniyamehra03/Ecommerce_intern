@@ -100,7 +100,7 @@ function App() {
       <Route path="/order-confirmation" element ={<OrderConfirmation/>}/>
       <Route path="/products" element ={<Products addToCart={addToCart}/>}/>
       <Route path="/products/:id" element ={<ProductDetails addToCart={addToCart}/>}/>
-      <Route path="/search" element ={<Search/>}/>
+      <Route path="/search" element ={<Search addToCart={addToCart}/>}/>
     </Routes>
       <Footer/>
       <ScrollToTop />
