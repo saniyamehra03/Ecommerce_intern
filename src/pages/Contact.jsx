@@ -1,8 +1,56 @@
-import React from 'react'
 
+import React ,{useState} from 'react'
 const Contact = () => {
+  const[formData ,setFormData] =useState({
+    name:"",
+    email:"",
+    phone:"",
+    message:"",
+  });
+
+  const[errors,setErrors] =useState({});
+  const [success ,setSuccess] =useState ("");
+  const handleChange =(e) => {
+    setFormData({
+      ...formData,[e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit =(e) =>{
+    e.preventDefault();
+    let newErrors ={};
+    if(!formData.name.trim()){
+      newErrors.name ="Name is required";
+    }
+    if(!formData.email.trim()){
+      newErrors.email="Email is required";
+    } else if(!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Enter a valid email";
+    }
+   if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      newErrors.phone = "Enter a valid 10-digit phone number";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    }
+    setErrors(newErrors);
+     if(Object.keys(newErrors).length ===0){
+      setSuccess('Message sent successfully!');
+      setFormData({
+        name:"",
+        email:"",
+        phone:"",
+        message:"",
+      });
+     } else{
+      setSuccess("");
+     }
+     };
   return (
-    <div className='container' py-5>
+    <div className='container py-5'>
 
       <div className='text-center mb-5'>
      <h1 className='display-4 fw-bold'>
@@ -56,7 +104,7 @@ const Contact = () => {
               Send Us a Message
             </h3>
 
-            <form>
+            <form onSubmit={handleSubmit}>
 
               <div className="mb-3">
                 <label className="form-label">
@@ -64,9 +112,15 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   className="form-control"
                   placeholder="Enter your full name"
                 />
+                {errors.name && (
+                   <small className="text-danger">{errors.name}</small>
+                  )}
               </div>
 
               <div className="mb-3">
@@ -75,20 +129,32 @@ const Contact = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="form-control"
                   placeholder="Enter your email"
                 />
+                {errors.email && (
+                  <small className="text-danger">{errors.email}</small>
+                )}
               </div>
 
               <div className="mb-3">
                 <label className="form-label">
-                  Subject
+                  Phone Number
                 </label>
                 <input
-                  type="text"
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   className="form-control"
-                  placeholder="Enter subject"
+                  placeholder="Enter Phone No."
                 />
+                {errors.phone &&(
+                  <small className='text-danger'>{errors.phone}</small>
+                )}
               </div>
 
               <div className="mb-4">
@@ -97,9 +163,15 @@ const Contact = () => {
                 </label>
                 <textarea
                   rows="5"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   className="form-control"
                   placeholder="Write your message..."
                 ></textarea>
+                {errors.message &&(
+                  <small className='text-danger'>{errors.message}</small>
+                )}
               </div>
 
               <button
@@ -108,10 +180,12 @@ const Contact = () => {
               >
                 Send Message
               </button>
-
+              {success &&(
+                <p className='text-success text-center mt-3'>
+                  {success}
+                </p>
+              )}
             </form>
-
-      
     </div>
     </div>
     </div>
