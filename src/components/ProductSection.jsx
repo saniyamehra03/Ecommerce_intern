@@ -4,11 +4,23 @@
 
     const ProductSection = ({ addToCart }) => {
       const [selectedCategory ,setSelectedCategory]= useState("All");
-      const filteredProducts = 
-      selectedCategory === "All"
-      ? products:products.filter(
-        (product) => product.category ===selectedCategory
-      );
+      const [selectedPrice , setSelectedPrice] =useState("All");
+
+      const filteredProducts = products.filter((product)=>{
+        const productPrice = Number(product.price.replace (/[₹,]/g, ""));
+
+        const categoryMatch = selectedCategory === "All" ||
+          product.category === selectedCategory;
+          
+      const priceMatch =
+      selectedPrice === "All" ||
+      (selectedPrice === "Under5000" && productPrice <5000)||
+      (selectedPrice === "5000tp20000" && 
+        productPrice >=5000 &&
+        productPrice <=20000 )||
+        (selectedPrice === "Above20000" && productPrice>20000);
+        return categoryMatch && priceMatch;
+      });
       return (
         <section className="py-5">
           <div className="container">
@@ -22,7 +34,7 @@
               ? "btn-dark"
               : "btn-outline-dark"
               }`}
-              onClick={() => selectedCategory("All")}
+              onClick={() => setSelectedCategory("All")}
               >
                 All
               </button>
@@ -68,6 +80,48 @@
             >
              Home
             </button>
+            </div>
+            <div className='d-flex justify-content-center flex-wrap gap-2 mb-5'>
+              <button 
+              className={`btn ${
+               selectedPrice === "All"
+                ? "btn-primary"
+                : "btn-outline-primary"
+              }`} onClick={() => setSelectedPrice("All")}>
+                All Prices
+              </button>
+
+              <button 
+              className={`btn ${
+               selectedPrice === "Under5000"
+               ? "btn-primary"
+               : "btn-outline-primary"
+              }`} onClick={() => setSelectedPrice("Under5000")}
+             >
+             Under ₹5,000
+             </button>
+             <button
+               className={`btn ${
+                selectedPrice === "5000to20000"
+                 ? "btn-primary"
+                 : "btn-outline-primary"
+            }`}
+              onClick={() => setSelectedPrice("5000to20000")}
+            >
+            ₹5,000 - ₹20,000
+           </button>
+
+           <button
+            className={`btn ${
+             selectedPrice === "Above20000"
+              ? "btn-primary"
+              : "btn-outline-primary"
+            }`}
+             onClick={() => setSelectedPrice("Above20000")}
+            >
+             Above ₹20,000
+           </button>
+
             </div>
             <div className="row g-5">
               {filteredProducts.map((product) => (
